@@ -4,8 +4,9 @@
 "UserName": "Anonymous Developer",
 "UserEmail" :"faisal.hasan@assetinfinity.com",
 "Password" :"abc",
-"Organization" :"WSPdemo",
+"Organization" :"autom",
 "assetcode" : "AST202514680",
-"Newassetname" :" Laptop"
+"Newassetname" :" Laptop",
+"urlpart":"app-uat"
     }
 }
