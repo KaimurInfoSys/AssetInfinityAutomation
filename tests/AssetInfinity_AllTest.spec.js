@@ -6,22 +6,27 @@ import {LoginToDashboardPage} from "../pages/LoginToDashboardPage";
 import { Asset_Management } from "../pages/Asset_Management";
 
 import {user1} from "../testdata/testdatafile1.json"
+import { Booking_Setting } from "../pages/Booking_Setting";
 
 // @ts-ignore
 
 let _launchpage = new LaunchApplication;
 let _signInpage = new LoginToDashboardPage;
 let _assetmgt = new Asset_Management;
+let _bookingsetting = new Booking_Setting();
 
 
 
 
 test.beforeEach(async ({ page }) => {
 
-  _launchpage = new LaunchApplication(page);
+  _launchpage = new LaunchApplication(page,user1.urlpart);
    //const _tempsignpage = await  _launchpage.LaunchApp_And_SignInPage();
-   _signInpage = new LoginToDashboardPage(page);
+   _signInpage = new LoginToDashboardPage(page,user1.urlpart);
    _assetmgt = new Asset_Management(page);
+
+   _bookingsetting = new Booking_Setting(page);
+
 
   });
 
@@ -29,7 +34,7 @@ test.only('TC01 - Login to application', async ({ page}) => {
     
 await _launchpage.LaunchApp_And_SignInPage();
 await _signInpage.User_Login_LoadDashboard(user1.Organization,user1.UserEmail,user1.Password);
-
+await _bookingsetting.Create_NewBooking_Setting();
 });
 
 test('TC02 - View Asset ', async ({ page}) => {
