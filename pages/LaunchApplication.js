@@ -2,10 +2,11 @@ const { expect } = require("@playwright/test");
 
 exports.LaunchApplication = class LaunchApplication
 {
-    constructor(page)
+    constructor(page,urlpart)
     {
-      this.page = page ;   
-    }
+      this.page = page ;  
+      this.urlpart = urlpart;
+     }
 
 async LaunchApp_And_SignInPage_AIDemo()
 {
@@ -22,7 +23,7 @@ async LaunchApp_And_SignInPage_AIDemo()
 async LaunchApp_And_SignInPage()
 {
 
-await this.page.goto('https://app-autom.assetinfinity.io/');
+await this.page.goto('https://'+this.urlpart+'.assetinfinity.io/');
 
 }
 
